@@ -21,6 +21,11 @@ pipeline {
                 }
             }
         }
+        stage ('Docker Build and Push')
+            steps {
+                sh 'printenv'
+                sh 'docker build -t ijogun/numericapp:""$GIT_COMMIT"".'
+                sh 'docker push ijogun/numerica-app:""$GIT_COMMIT""'
     }
 }
 
